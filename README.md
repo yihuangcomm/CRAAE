@@ -15,7 +15,7 @@ Experiments enviroments settings are as below:
 - torch>=0.4.0
 - torchvision>=0.2.1
 
-- OS: Ubuntu 
+- OS: Red Hat Enterprise Linux Server release 7.9
 
 ### File Explanation
 
