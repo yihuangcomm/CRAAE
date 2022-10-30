@@ -69,7 +69,7 @@ def get_XY(Dir):
             x = x[:,[0,20]]
             X.append(x)
             # depend on how to extract labels
-            y = file[5:7]
+            y = file[4:5] # for youtubemusic # file[5:7] for youtube
             Y.append(y)
     Y = np.argmax(onehot(Y),axis=1)
     Y = Y.tolist()
@@ -92,7 +92,7 @@ def get_XY2(Dir):
 def make_datasets(cfg, folding_id, inlier_classes):
     data_train = []
     data_test = []  
-    data_train = get_XY("train_" + cfg.DATASET.PATH)
+    data_train = get_XY(cfg.DATASET.PATH)  # for youtubemusic # get_XY("train_" + cfg.DATASET.PATH) for youtube
     data_train = [x for x in data_train if x[0] in inlier_classes]
     data_test = get_XY("test_" + cfg.DATASET.PATH)
     data_test = [x for x in data_test]
