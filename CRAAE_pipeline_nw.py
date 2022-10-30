@@ -43,9 +43,10 @@ def f(setting):
     return res
 
 
-gpu_count = utils.multiprocessing.get_gpu_count()
-print(gpu_count)
+# gpu_count = utils.multiprocessing.get_gpu_count()
+# print(gpu_count)
 
-results = utils.multiprocessing.map(f, gpu_count, settings)
+# results = utils.multiprocessing.map(f, gpu_count, settings)
 
-save_results(results, result_folder)
+# save_results(results, result_folder)
+results = f(settings[0])
