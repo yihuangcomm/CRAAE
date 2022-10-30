@@ -10,9 +10,9 @@ _C.DATASET = CN()
 _C.DATASET.PERCENTAGES = [10, 20, 30, 40, 50]
 
 _C.DATASET.calibrate = "calibrate"
-_C.DATASET.category = "uniform" #dirichlet,gaussian,uniform
-_C.DATASET.PATH = "youtube"
-_C.DATASET.PATH_out = "youtubemusic" # wiki netflix youtubemusic
+_C.DATASET.category = "gaussian" #dirichlet,gaussian,uniform
+_C.DATASET.PATH = "youtubemusic" #"youtube"
+_C.DATASET.PATH_out = "" #"youtubemusic" # wiki netflix youtubemusic
 _C.DATASET.TOTAL_CLASS_COUNT = 10
 _C.DATASET.FOLDS_COUNT = 5
 _C.OUTPUT_DIR = "cgpnd_" + _C.DATASET.PATH + "_" + _C.DATASET.category + "_valid" 
