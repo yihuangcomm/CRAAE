@@ -24,7 +24,7 @@ import time
 import logging
 import os
 from dataloading_nw import make_datasets, make_dataloader
-from net_nw_newmodel import Generator, Discriminator, Encoder, ZDiscriminator_mergebatch, ZDiscriminator
+from net_nw_newmodel import Generator, Discriminator, Encoder, ZDiscriminator
 from utils.tracker import LossTracker
 import torch.nn as nn
 import torch.nn.functional as F
@@ -108,11 +108,11 @@ def train(folding_id, inlier_classes, ic):
             y_real_ = Variable(torch.ones(x.shape[0]).cuda())
             y_fake_ = Variable(torch.zeros(x.shape[0]).cuda())
 
-            y_real_z = Variable(torch.ones(1 if cfg.MODEL.Z_DISCRIMINATOR_CROSS_BATCH else x.shape[0]).cuda())
-            y_fake_z = Variable(torch.zeros(1 if cfg.MODEL.Z_DISCRIMINATOR_CROSS_BATCH else x.shape[0]).cuda())
+            y_real_z = Variable(torch.ones(x.shape[0]).cuda())
+            y_fake_z = Variable(torch.zeros(x.shape[0]).cuda())
 
-            y_real_z_cat = Variable(torch.ones(1 if cfg.MODEL.Z_DISCRIMINATOR_CROSS_BATCH else x.shape[0]).cuda())
-            y_fake_z_cat = Variable(torch.zeros(1 if cfg.MODEL.Z_DISCRIMINATOR_CROSS_BATCH else x.shape[0]).cuda())  
+            y_real_z_cat = Variable(torch.ones(x.shape[0]).cuda())
+            y_fake_z_cat = Variable(torch.zeros(x.shape[0]).cuda())  
 
             uniform_dist = torch.Tensor(x.shape[0], cfg.DATASET.TOTAL_CLASS_COUNT).fill_((1./cfg.DATASET.TOTAL_CLASS_COUNT)).cuda()
             seed = 12345
